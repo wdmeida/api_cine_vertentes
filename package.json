@@ -1,6 +1,6 @@
 {
   "name": "cine_plaza_webservice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API para consumo do site do Cine Plaza Barbacena.",
   "main": "index.js",
   "scripts": {
