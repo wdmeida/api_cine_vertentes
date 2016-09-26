@@ -1,0 +1,21 @@
+{
+  "name": "cine_plaza_webservice",
+  "description": "API para consumo do site do Cine Plaza Barbacena.",
+  "main": "index.js",
+  "authors": [
+    "Wagner Almeida"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-material": "^1.1.1"
+  }
+}
