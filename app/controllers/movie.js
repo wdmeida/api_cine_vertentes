@@ -7,10 +7,10 @@ var constants = require('../resources/constants');
 module.exports = function(app) {
 	controller = {};
 
-	//Controller getAll
-	controller.getAll = function(req, res) {
+	//Controller getCinePlaza
+	controller.getCinePlaza = function(req, res) {
 		//Obtém a url do site.
-		url = constants.url.SITE;
+		url = constants.url.CINE_PLAZA;
 
 		//Realiza a requisição aos dados da página.
 		request(url, function(error, response, html) {
@@ -33,6 +33,28 @@ module.exports = function(app) {
 			}
 		});
 	};
+
+	//controller getCineGloria
+	controller.getCineGloria = function(req, res){
+		url = constants.url.CINE_GLORIA;
+
+		request(url, function(error, response, html) {
+			respObj = {};
+			respObj.cod = 0;
+
+			if (error) {
+				respObj.cod = 500;
+				res.status(500).json(respObj);
+			} else {
+				respObj.cod = 200;
+
+				var $ = cheerio.load(html);
+				console.log($);
+				res.status(200).json(respObj);
+			}
+		});
+	};
+
 	return controller;
 };
 
