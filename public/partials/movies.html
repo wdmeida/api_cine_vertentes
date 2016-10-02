@@ -1,0 +1,23 @@
+<div>
+    <p ng-show="message.text">
+        {{message.text}}
+    </p>
+    <h1>{{ week }}</h1>
+</div>
+
+<input type="search" placeholder="filme" ng-model="filtro">
+
+<div>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Gênero</th>
+            <th>Classificação</th>
+        </tr>
+        <tr ng-repeat="movie in movies | filter: { name: filtro }">
+            <td>{{ movie.name }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.classification }}</td>
+        </tr>
+    </table>
+</div>
