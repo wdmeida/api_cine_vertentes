@@ -7,7 +7,7 @@ module.exports = function() {
 	var app = express();
 
 	//Configurações da aplicação.
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 80);
 
 	//Template engine que será usado para gerar as views e onde ficarão armazenadas.
 	app.set('view engine', 'ejs');

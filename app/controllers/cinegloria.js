@@ -71,7 +71,7 @@ function getMoviesCineGloria($){
 			Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
 			
 			Movie.trailer = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.children('a').attr('href').replace('https://','').trim();
+																.children('a').attr('href').replace('"https://https:','https:').trim();
 			Movie.local = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
 																.children('span:nth-child(5)').text().replace(/\s{2,}/g,' ').trim();
 			Movie.genre = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
