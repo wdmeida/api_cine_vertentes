@@ -1,0 +1,39 @@
+<div>
+    <p ng-show="message.text">
+        {{message.text}}
+    </p>
+    <h1>{{ week }}</h1>
+</div>
+
+<input type="search" placeholder="filme" ng-model="filtro">
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout"column" ng-repeat="movie in movies | filter: { name: filtro }">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch> 
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ movie.name }}</span>
+                        <span class="md-subhead">{{ movie.genre }}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media">
+                            <img src="{{ movie.cover }}" width="125px" height="125px">
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Action 1</md-button>
+                    <md-button>Action 2</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+
+        <md-card>
+
+            <tr ng-repeat="movie in movies | filter: { name: filtro }">
+                <td>{{ movie.name }}</td>
+                <td>{{ movie.genre }}</td>
+                <td>{{ movie.classification }}</td>
+            </tr>
+    </div>
