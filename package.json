@@ -20,6 +20,7 @@
     "express": "^4.14.0",
     "express-load": "^1.1.15",
     "format": "^0.2.2",
+    "formats": "^0.5.5",
     "method-override": "~2.3.6",
     "request": "~2.81.0"
   }
