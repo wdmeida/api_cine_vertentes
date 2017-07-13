@@ -58,6 +58,8 @@ function getMoviesCinePlaza($){
 			Movie.classification = durationAndClassification[1].trim().replace('Classificaçao: ','');
 			Movie.exibition = $(this).children('td:nth-child(3)').children('p').text().split('- ').slice(1).join('-')
 															.replace(/\s{2,}/g,' ').split('Genero')[0];
+			Movie.week_exibition = $('table table tr').first().children('td:nth-child(1)').children('p:nth-child(3)')
+																		.text().replace(/\s{2,}/g,' ').split('ão de')[1];
 			movies.push(Movie);
 		}		
 	});
