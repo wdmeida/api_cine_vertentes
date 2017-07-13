@@ -2,7 +2,8 @@
   "name": "cine_plaza_webservice",
   "version": "1.0.2",
   "engines": {
-    "node": "7.10.1"
+    "node": "8.1.x",
+    "npm": "5.2.0"
   },
   "description": "API para consumo do site do Cine Plaza Barbacena.",
   "main": "index.js",
@@ -14,11 +15,9 @@
   "dependencies": {
     "body-parser": "~1.17.2",
     "cheerio": "^1.0.0-rc.2",
-    "debug": "^2.6.8",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-load": "^1.1.15",
-    "formats": "^0.5.5",
     "method-override": "~2.3.6",
     "request": "~2.81.0"
   }
