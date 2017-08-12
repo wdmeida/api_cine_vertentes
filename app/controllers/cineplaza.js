@@ -55,7 +55,8 @@ function getMoviesCinePlaza($){
 			Movie.genre = $(this).children('td:nth-child(3)').children('p:nth-child(2)').text().replace('Genero: ','');
 			var durationAndClassification = $(this).children('td:nth-child(3)').children('p:nth-child(3)').text().split('\n'); 
 			Movie.duration = durationAndClassification[0].trim().replace('Duraçao: ','');
-			Movie.classification = durationAndClassification[1].trim().replace('Classificaçao: ','');
+			console.log(durationAndClassification[1]);
+			Movie.classification = getClassificationResponse(durationAndClassification, 'Não informada');
 			Movie.exibition = $(this).children('td:nth-child(3)').children('p').text().split('- ').slice(1).join('-')
 															.replace(/\s{2,}/g,' ').split('Genero')[0];
 			Movie.week_exibition = $('table table tr').first().children('td:nth-child(1)').children('p:nth-child(3)')
@@ -65,3 +66,13 @@ function getMoviesCinePlaza($){
 	});
 	return movies;
 };//getMoviesCinePlaza()
+
+function getClassificationResponse(durationAndClassification, response) {
+	let message = '';
+	try {
+		message = durationAndClassification[1].trim().replace('Classificaçao: ','');
+	} catch (error) {
+		message = 'Não informado';
+	}
+	return message;
+}
