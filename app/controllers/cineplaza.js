@@ -55,7 +55,6 @@ function getMoviesCinePlaza($){
 			Movie.genre = $(this).children('td:nth-child(3)').children('p:nth-child(2)').text().replace('Genero: ','');
 			var durationAndClassification = $(this).children('td:nth-child(3)').children('p:nth-child(3)').text().split('\n'); 
 			Movie.duration = durationAndClassification[0].trim().replace('Duraçao: ','');
-			console.log(durationAndClassification[1]);
 			Movie.classification = getClassificationResponse(durationAndClassification, 'Não informada');
 			Movie.exibition = $(this).children('td:nth-child(3)').children('p').text().split('- ').slice(1).join('-')
 															.replace(/\s{2,}/g,' ').split('Genero')[0];
