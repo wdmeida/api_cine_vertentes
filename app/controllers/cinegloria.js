@@ -66,8 +66,8 @@ function getMoviesCineGloria($){
 	tableInfoMovies.each(function (index, element){
 		if(index != 0 ){
 			var Movie = new MovieClass();
-			Movie.name = $(this).children('div:nth-child(2)').children('div:nth-child(1)').children('span:nth-child(1)')
-																.children('strong').text().trim();
+			Movie.name = titleize($(this).children('div:nth-child(2)').children('div:nth-child(1)').children('span:nth-child(1)')
+																.children('strong').text().trim());
 			Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
 			
 			Movie.trailer = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
@@ -110,3 +110,7 @@ function getNextMoviesCineGloria($){
 		});
 	return movies;	
 }//getNextMoviesCineGloria()
+
+function titleize(title) {
+	return title.toLowerCase().replace(/(?:^|\s)\S/g, (a) => a.toUpperCase());
+}
