@@ -75,7 +75,7 @@ function getMoviesCineGloria($){
 																		.text().trim()
 																	);
 			// Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
-			Movie.cover = 'https://www.samservicos.com.br/wp-content/uploads/2015/11/sem-imagem-avatar.png';
+			Movie.cover = 'https://www.exibidor.com.br/img/sem-poster.jpg';
 			
 			Movie.trailer = $(this).children('div:nth-child(2)')
 														 .children('div:nth-child(2)')
@@ -103,7 +103,7 @@ function getMoviesCineGloria($){
 															.text().replace(/\s{2,}/g,' ').trim();
 			
 			Movie.classification = 'Não informada';
-			
+
 			Movie.exibition = $(this).children('div:nth-child(2)')
 															 .children('div:nth-child(2)')
 															 .children('div:nth-child(1)').clone()
