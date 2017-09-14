@@ -68,7 +68,9 @@ function getMoviesCineGloria($){
 			var Movie = new MovieClass();
 			Movie.name = titleize($(this).children('div:nth-child(2)').children('div:nth-child(1)').children('span:nth-child(1)')
 																.children('strong').text().trim());
-			Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
+			// Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
+			
+			Movie.cover = 'https://www.samservicos.com.br/wp-content/uploads/2015/11/sem-imagem-avatar.png';
 			
 			Movie.trailer = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
 																.children('a').attr('href').replace('"https://https:','https:').trim();
@@ -114,3 +116,4 @@ function getNextMoviesCineGloria($){
 function titleize(title) {
 	return title.toLowerCase().replace(/(?:^|\s)\S/g, (a) => a.toUpperCase());
 }
+
