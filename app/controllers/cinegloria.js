@@ -66,25 +66,56 @@ function getMoviesCineGloria($){
 	tableInfoMovies.each(function (index, element){
 		if(index != 0 ){
 			var Movie = new MovieClass();
-			Movie.name = titleize($(this).children('div:nth-child(2)').children('div:nth-child(1)').children('span:nth-child(1)')
-																.children('strong').text().trim());
-			// Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
 			
+			Movie.name = titleize( 
+														 $(this).children('div:nth-child(2)')
+																		.children('div:nth-child(1)')
+																		.children('span:nth-child(1)')
+																		.children('strong')
+																		.text().trim()
+																	);
+			// Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
 			Movie.cover = 'https://www.samservicos.com.br/wp-content/uploads/2015/11/sem-imagem-avatar.png';
 			
-			Movie.trailer = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.children('a').attr('href').replace('"https://https:','https:').trim();
-			Movie.local = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.children('span:nth-child(5)').text().replace(/\s{2,}/g,' ').trim();
-			Movie.genre = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.children('span:nth-child(3)').text().replace(/\s{2,}/g,' ').replace('Gênero:','').trim();
-			Movie.duration = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.children('span:nth-child(1)').text().replace(/\s{2,}/g,' ').trim();
-			//Movie.classification;
-			Movie.exibition = $(this).children('div:nth-child(2)').children('div:nth-child(2)').children('div:nth-child(1)')
-																.clone().children().remove().end().text().replace(/\s{2,}/g,' ').trim();
-			Movie.week_exibition = $(this).children('div:nth-child(2)').children('div:nth-child(1)').children('span:nth-child(2)')
-																.text().replace(/\s{2,}/g,' ').trim();
+			Movie.trailer = $(this).children('div:nth-child(2)')
+														 .children('div:nth-child(2)')
+														 .children('div:nth-child(1)')
+														 .children('a')
+														 .attr('href').replace('"https://https:','https:').trim();
+			
+			Movie.local = $(this).children('div:nth-child(2)')
+													 .children('div:nth-child(2)')
+													 .children('div:nth-child(1)')
+													 .children('span:nth-child(5)')
+													 .text().replace(/\s{2,}/g,' ').trim();
+			
+			Movie.genre = $(this).children('div:nth-child(2)')
+													 .children('div:nth-child(2)')
+													 .children('div:nth-child(1)')
+													 .children('span:nth-child(3)')
+													 .text().replace(/\s{2,}/g,' ')
+													 .replace('Gênero:','').trim();
+			
+			Movie.duration = $(this).children('div:nth-child(2)')
+															.children('div:nth-child(2)')
+															.children('div:nth-child(1)')
+															.children('span:nth-child(1)')
+															.text().replace(/\s{2,}/g,' ').trim();
+			
+			Movie.classification = 'Não informada';
+			
+			Movie.exibition = $(this).children('div:nth-child(2)')
+															 .children('div:nth-child(2)')
+															 .children('div:nth-child(1)').clone()
+															 .children()
+															 .remove().end().text()
+															 .replace(/\s{2,}/g,' ').trim();
+			
+			Movie.week_exibition = $(this).children('div:nth-child(2)')
+																		.children('div:nth-child(1)')
+																		.children('span:nth-child(2)')
+																		.text().replace(/\s{2,}/g,' ').trim();
+			
 			movies.push(Movie);
 		}
 	});
