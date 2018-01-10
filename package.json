@@ -1,6 +1,6 @@
 {
   "name": "cine_plaza_webservice",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "engines": {
     "node": "8.1.x",
     "npm": "5.2.0"
@@ -8,8 +8,9 @@
   "description": "API para consumo dos filmes em cartaz no Cine Plaza Barbacena e Cine Glória São João Del Rey.",
   "main": "server.js",
   "scripts": {
-    "production": "pm2 start server.js --name cine_plaza_webservice",
-    "dev": "nodemon -V"
+    "test": "mocha --timeout 10000",
+    "dev": "nodemon -V",
+    "production": "pm2 start server.js --name cine_plaza_webservice"
   },
   "author": "Wagner Almeida",
   "license": "ISC",
@@ -23,6 +24,9 @@
     "request": "~2.81.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1",
     "nodemon": "^1.11.0"
   }
 }

@@ -11,6 +11,8 @@ module.exports = function(app) {
 		getMoviesCineGloria : function(req, res){
 			url = constants.url.CINE_GLORIA_PROGRAMACAO;
 
+			console.log('URL', url);
+
 			request(url, function(error, response, html) {
 				respObj = {};
 				respObj.cod = 0;
@@ -59,7 +61,11 @@ module.exports = function(app) {
 //Extrai as informações dos filmes em cartas no Cine Glória.
 function getMoviesCineGloria($){
 	//Obtém o objeto a ser percorrido com os nomes dos filmes.
-	var tableInfoMovies = $('#content').children('div:nth-child(1)').children('div:nth-child(1)').children('div:nth-child(1)').children('div');
+	var tableInfoMovies = $('#content').children('div:nth-child(1)')
+																		 .children('div:nth-child(1)')
+																		 .children('div:nth-child(1)')
+																		 .children('div');
+	
 	var movies = [];
 
 	//Percorre os dados extraídos do html obtendo as informações dos filmes.
@@ -125,22 +131,36 @@ function getMoviesCineGloria($){
 //Extrai as informações dos próximos filmes a entrarem em cartas.
 function getNextMoviesCineGloria($){
 	//Obtém o objeto a ser percorrido com os nomes dos filmes.
-	var tableInfoMovies = $('#content').children('div:nth-child(1)').children('div:nth-child(1)').children('div:nth-child(1)')
-								.children('div:nth-child(3)').children('div:nth-child(1)').children('div');
+	var tableInfoMovies = $('#content').children('div:nth-child(1)')
+																		 .children('div:nth-child(1)')
+																		 .children('div:nth-child(1)')
+																		 .children('div:nth-child(3)')
+																		 .children('div:nth-child(1)')
+																		 .children('div');
 	var movies = [];
 
 	//Percorre os dados extraídos do html obtendo as informações dos filmes.
 	tableInfoMovies.each(function (index, element){
 		if(index != tableInfoMovies.length - 1 ){
-				var Movie = new MovieClass();
-				Movie.name = $(this).children('div:nth-child(2)').children('a:nth-child(1)').text().trim();
-				Movie.cover =  constants.url.CINE_GLORIA + $(this).children('a:nth-child(1)').children('img').attr('src');
-				Movie.genre = $(this).children('div:nth-child(2)')
-														.clone().children().remove().end() //Obtém os elementos que não estão envolvidos por tags.
-														.text().replace(/\s{2,}/g,' ').replace('Gênero:','').trim();
-				movies.push(Movie);
+			var Movie = new MovieClass();
+			Movie.name = $(this).children('div:nth-child(2)')
+													.children('a:nth-child(1)')
+													.text().trim();
+			Movie.cover =  constants.url.CINE_GLORIA + $(this).children('a:nth-child(1)')
+																												.children('img')
+																												.attr('src');
+			Movie.genre = $(this).children('div:nth-child(2)')
+													 .clone()
+													 .children()
+													 .remove()
+													 .end() 
+													 .text()
+													 .replace(/\s{2,}/g,' ')
+													 .replace('Gênero:','').trim();
+			movies.push(Movie);
 			}
-		});
+	});
+
 	return movies;	
 }//getNextMoviesCineGloria()
 

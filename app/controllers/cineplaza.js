@@ -26,8 +26,11 @@ module.exports = function(app) {
 				//Carrega os dados para realizar o parse.
 				var $ = cheerio.load(html);		
 				//Obtém a data da programação e os parâmetros.
-				respObj.week = $('table table tr').first().children('td:nth-child(1)').children('p:nth-child(3)')
-																		.text().replace(/\s{2,}/g,' ').split('ão de')[1];
+				respObj.week = $('table table tr').first().children('td:nth-child(1)')
+																									.children('p:nth-child(3)')
+																									.text()
+																									.replace(/\s{2,}/g,' ')
+																									.split('ão de')[1];
 				respObj.movies = getMoviesCinePlaza($);
 				res.status(200).json(respObj);
 			}
@@ -47,6 +50,7 @@ function getMoviesCinePlaza($){
 		//Verifica se não é a primeira nem a última posição.
 		if(index != 0 && index != tableInfoMovies.length - 1){
 			var Movie = new MovieClass();
+			
 			//Obtém os dados dos filmes.
 			Movie.name = $(this).children('td:nth-child(3)')
 													.children('p')
@@ -54,26 +58,34 @@ function getMoviesCinePlaza($){
 													.children('strong')
 													.children('span')
 													.text().replace(' -','').trim();
+			
 			Movie.cover = constants.url.CINE_PLAZA + $(this).children('td:nth-child(1)')
 																											.children('img')
 																											.attr('src');
+			
 			Movie.trailer = $(this).children('td:nth-child(2)')
 														 .children('object')
 														 .children('embed')
 														 .attr('src')
 														 .replace('http:', 'https:');
+			
 			Movie.genre = $(this).children('td:nth-child(3)')
 													 .children('p:nth-child(2)')
 													 .text().replace('Genero: ','');
+		
 			var durationAndClassification = $(this).children('td:nth-child(3)')
 																						 .children('p:nth-child(3)')
 																						 .text().split('\n'); 
+		
 			Movie.duration = durationAndClassification[0].trim().replace('Duraçao: ','');
+		
 			Movie.classification = getClassificationResponse(durationAndClassification, 'Não informada');
+			
 			Movie.exibition = $(this).children('td:nth-child(3)')
 															 .children('p')
 															 .text().split('- ').slice(1).join('-')
 															 .replace(/\s{2,}/g,' ').split('Genero')[0];
+															 
 			Movie.week_exibition = $('table table tr').first().children('td:nth-child(1)')
 																												.children('p:nth-child(3)')
 																												.text().replace(/\s{2,}/g,' ').split('ão de')[1];
