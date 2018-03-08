@@ -6,10 +6,10 @@
     "npm": "5.2.0"
   },
   "description": "API para consumo dos filmes em cartaz no Cine Plaza Barbacena e Cine Glória São João Del Rey.",
-  "main": "server.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon -V",
-    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "lint": "./node_modules/.bin/eslint src/*",
     "prepush": "npm run lint",
     "production": "pm2 start server.js --name cine_plaza_webservice",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/wdmeida/spotify-wrapper#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.14.0",
     "express-load": "^1.1.15",
     "method-override": "~2.3.6",
