@@ -1,6 +1,8 @@
-const http = require('http');
-const app = require('./config/express')();
+require('module-alias/register');
 
-http.createServer(app).listen(app.get('port'), () => console.log(`Server running in port ${app.get('port')}...`));
+const app = require('./config/express.config')();
 
-module.exports = app;
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
+
