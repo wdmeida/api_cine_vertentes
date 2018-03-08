@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "./node_modules/.bin/nodemon -V",
     "lint": "./node_modules/.bin/eslint src/*",
-    "prepush": "npm run lint",
     "production": "pm2 start server.js --name cine_plaza_webservice",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "npm test -- --watch",
