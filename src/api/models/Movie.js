@@ -6,8 +6,8 @@ function Movie() {
   this.duration;
   this.local;
   this.classification;
-  this.exibition;
-  this.week_exibition;
+  this.exhibition;
+  this.weekExhibition;
 }
 
 module.exports = Movie;
