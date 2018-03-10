@@ -1,8 +1,5 @@
 import 'module-alias/register';
-import chai, { expect } from 'chai';
-import sinon from 'sinon';
-import sinonChai from 'sinon-chai';
-import { JSDOM } from 'jsdom';
+import { expect } from 'chai';
 
 import Movie from '@models/Movie';
 

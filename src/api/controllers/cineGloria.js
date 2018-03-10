@@ -2,11 +2,11 @@ var MovieClass = require('../models/Movie');
 //Módulo responsável por fazer o parser do html.
 var cheerio = require('cheerio');
 var request = require('request');
-var constants = require('../resources/constants');
+var constants = require('../utils/constants');
 
 module.exports = function(app) {
 	var cinegloriaController = {
-		
+
 		//controller responsável por exibir as informações dos filmes em cartaz no Cine Glória.
 		getMoviesCineGloria : function(req, res){
 			url = constants.url.CINE_GLORIA_PROGRAMACAO;
@@ -57,6 +57,8 @@ module.exports = function(app) {
 	return cinegloriaController;
 };
 
+// get list movies
+// #content > div > div.wrapper.pad-top1 > div.grid_8 > div.wrapper.img-bottom
 
 //Extrai as informações dos filmes em cartas no Cine Glória.
 function getMoviesCineGloria($){
@@ -65,15 +67,15 @@ function getMoviesCineGloria($){
 																		 .children('div:nth-child(1)')
 																		 .children('div:nth-child(1)')
 																		 .children('div');
-	
+
 	var movies = [];
 
 	//Percorre os dados extraídos do html obtendo as informações dos filmes.
 	tableInfoMovies.each(function (index, element){
 		if(index != 0 ){
 			var Movie = new MovieClass();
-			
-			Movie.name = titleize( 
+
+			Movie.name = titleize(
 														 $(this).children('div:nth-child(2)')
 																		.children('div:nth-child(1)')
 																		.children('span:nth-child(1)')
@@ -82,32 +84,32 @@ function getMoviesCineGloria($){
 																	);
 			// Movie.cover =  constants.url.CINE_GLORIA + $(this).children('img:nth-child(1)').attr('src');
 			Movie.cover = 'https://www.exibidor.com.br/img/sem-poster.jpg';
-			
+
 			Movie.trailer = $(this).children('div:nth-child(2)')
 														 .children('div:nth-child(2)')
 														 .children('div:nth-child(1)')
 														 .children('a')
 														 .attr('href').replace('"https://https:','https:').trim();
-			
+
 			Movie.local = $(this).children('div:nth-child(2)')
 													 .children('div:nth-child(2)')
 													 .children('div:nth-child(1)')
 													 .children('span:nth-child(5)')
 													 .text().replace(/\s{2,}/g,' ').trim();
-			
+
 			Movie.genre = $(this).children('div:nth-child(2)')
 													 .children('div:nth-child(2)')
 													 .children('div:nth-child(1)')
 													 .children('span:nth-child(3)')
 													 .text().replace(/\s{2,}/g,' ')
 													 .replace('Gênero:','').trim();
-			
+
 			Movie.duration = $(this).children('div:nth-child(2)')
 															.children('div:nth-child(2)')
 															.children('div:nth-child(1)')
 															.children('span:nth-child(1)')
 															.text().replace(/\s{2,}/g,' ').trim();
-			
+
 			Movie.classification = 'Não informada';
 
 			Movie.exibition = $(this).children('div:nth-child(2)')
@@ -116,12 +118,12 @@ function getMoviesCineGloria($){
 															 .children()
 															 .remove().end().text()
 															 .replace(/\s{2,}/g,' ').trim();
-			
+
 			Movie.week_exibition = $(this).children('div:nth-child(2)')
 																		.children('div:nth-child(1)')
 																		.children('span:nth-child(2)')
 																		.text().replace(/\s{2,}/g,' ').trim();
-			
+
 			movies.push(Movie);
 		}
 	});
@@ -153,7 +155,7 @@ function getNextMoviesCineGloria($){
 													 .clone()
 													 .children()
 													 .remove()
-													 .end() 
+													 .end()
 													 .text()
 													 .replace(/\s{2,}/g,' ')
 													 .replace('Gênero:','').trim();
@@ -161,7 +163,7 @@ function getNextMoviesCineGloria($){
 			}
 	});
 
-	return movies;	
+	return movies;
 }//getNextMoviesCineGloria()
 
 function titleize(title) {
