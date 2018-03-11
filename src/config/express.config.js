@@ -8,8 +8,7 @@ module.exports = () => {
   app.use(allowCors);
 
   consign({ cwd: 'src/api' })
-    .include('models')
-    .then('routes')
+    .include('routes')
     .into(app);
 
   return app;

@@ -15,7 +15,6 @@ const getMovies = async (
     const dom = await getDomFromURL(url);
     const moviesNode = dom.window.document.querySelectorAll(selector);
     const movies = [];
-
     moviesNode.forEach((movieDom) => {
       const movie = new Movie(movieDom);
       movies.push(movie.allMovieInformation);
@@ -25,6 +24,5 @@ const getMovies = async (
     reject(error);
   }
 });
-
 
 module.exports = { getMovies };

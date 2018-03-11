@@ -1,12 +1,13 @@
-import 'module-alias/register';
+require('module-alias/register');
 
 const { getMovies } = require('@services/movies.services');
 
 module.exports = (api) => {
-  api.get('/api/v2/cinegloria/movies', (req, res) => {
+  api.get('/api/v1/cinegloria/movies', (req, res) => {
     const obj = {};
 
     try {
+      console.log('movies');
       const movies = getMovies();
       obj.movies = movies;
       res.status(200).json(obj);
