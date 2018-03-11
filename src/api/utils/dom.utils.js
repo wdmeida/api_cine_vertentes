@@ -14,3 +14,5 @@ export function getTextContent(dom = {}, selector = '') {
 
   return dom.window.document.querySelector(selector).textContent;
 }
+
+// export funtion normalizeText()
