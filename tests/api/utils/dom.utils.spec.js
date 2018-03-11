@@ -9,6 +9,7 @@ import sinonStubPromise from 'sinon-stub-promise';
 import {
   getDomFromURL,
   getTextContent,
+  normalizeText,
 } from '@utils/dom.utils';
 
 chai.use(sinonChai);
@@ -68,6 +69,20 @@ describe('dom.utils', () => {
     it('should call window with the correct value', () => {
       const textContent = getTextContent(dom, 'p');
       expect(textContent).to.have.equal('Hello');
+    });
+  });
+
+  describe('normalizeText', () => {
+    const textToNormalize = 'Atenção:     Este texto deve ser normalizado.';
+
+    it('should have must remove the additional spaces in the text', () => {
+      const textNormalized = normalizeText(textToNormalize);
+      expect(textNormalized).to.equal('Atenção: Este texto deve ser normalizado.');
+    });
+
+    it('should have must remove the additional spaces and requested wo', () => {
+      const textNormalized = normalizeText(textToNormalize, 'Atenção:');
+      expect(textNormalized).to.equal('Este texto deve ser normalizado.');
     });
   });
 });

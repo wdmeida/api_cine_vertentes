@@ -1,16 +1,18 @@
 require('module-alias/register');
 
+const { normalizeText } = require('@utils/dom.utils');
+
 class Movie {
   constructor(node) {
     this._node = node;
   }
 
   get name() {
-    return this._node.children[1].children[0].children[0].textContent.trim();
+    return this._node.children[1].children[0].children[0].textContent;
   }
 
   get weekExhibition() {
-    return this._node.children[1].children[0].children[1].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[0].children[1].textContent;
   }
 
   get cover() {
@@ -18,23 +20,23 @@ class Movie {
   }
 
   get duration() {
-    return this._node.children[1].children[1].children[0].children[0].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[0].children[0].textContent;
   }
 
   get actors() {
-    return this._node.children[1].children[1].children[0].children[1].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[0].children[1].textContent;
   }
 
   get genre() {
-    return this._node.children[1].children[1].children[0].children[2].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[0].children[2].textContent;
   }
 
   get local() {
-    return this._node.children[1].children[1].children[0].children[4].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[0].children[4].textContent;
   }
 
   get session() {
-    return this._node.children[1].children[1].children[0].children[5].nextSibling.textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[0].children[5].nextSibling.textContent;
   }
 
   get trailer() {
@@ -42,21 +44,21 @@ class Movie {
   }
 
   get sinopse() {
-    return this._node.children[1].children[1].children[1].textContent.replace(/\s+/g, ' ').trim();
+    return this._node.children[1].children[1].children[1].textContent;
   }
 
   get allMovieInformation() {
     return {
-      name: this.name,
-      weekExhibition: this.weekExhibition,
-      cover: this.cover,
-      duration: this.duration,
-      actors: this.actors,
-      genre: this.genre,
-      local: this.local,
-      session: this.session,
-      trailer: this.trailer,
-      sinopse: this.sinopse,
+      name: normalizeText(this.name),
+      weekExhibition: normalizeText(this.weekExhibition),
+      cover: normalizeText(this.cover),
+      duration: normalizeText(this.duration, 'Duração:'),
+      actors: normalizeText(this.actors, 'Atores:'),
+      genre: normalizeText(this.genre, 'Gênero:'),
+      local: normalizeText(this.local),
+      session: normalizeText(this.session),
+      trailer: normalizeText(this.trailer),
+      sinopse: normalizeText(this.sinopse),
     };
   }
 }
