@@ -14,3 +14,10 @@ export function getTextContent(dom = {}, selector = '') {
 
   return dom.window.document.querySelector(selector).textContent;
 }
+
+export const normalizeText = (content, expressionToRemove = '') => {
+  if (expressionToRemove.length > 0) {
+    return content.replace(expressionToRemove, '').replace(/\s+/g, ' ').trim();
+  }
+  return content.replace(/\s+/g, ' ').trim();
+};
