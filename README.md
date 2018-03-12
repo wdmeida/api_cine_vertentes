@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/wdmeida/api_cine_vertentes.svg?branch=master)](https://travis-ci.org/wdmeida/api_cine_vertentes)
-
 [![Coverage Status](https://coveralls.io/repos/github/wdmeida/api_cine_vertentes/badge.svg?branch=master)](https://coveralls.io/github/wdmeida/api_cine_vertentes?branch=master)
 
 <h3>API Cine Vertentes</h3>
