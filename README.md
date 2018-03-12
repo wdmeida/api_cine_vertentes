@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <h3>API Cine Vertentes</h3>
-=======
-<h3>API Cine Plaza Barbacena - MG</h3>
->>>>>>> 8473f0b98c52cfe3eb58e5bb515b02f6ad235e59
 
 <p>Servidor feito em <strong>NodeJS</strong> que obtém as informações dos filmes em cartaz no Cine Plaza na cidade de <strong>Barbacena -MG</strong>.</p>
 
