@@ -27,6 +27,7 @@
   "_moduleAliases": {
     "@controllers": "src/api/controllers",
     "@models": "src/api/models",
+    "@schemas": "src/api/schemas",
     "@services": "src/api/services",
     "@src": "src",
     "@routes": "src/api/routes",
@@ -46,10 +47,11 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "cheerio": "^1.0.0-rc.2",
-    "consign": "^0.1.6",
     "express": "^4.16.2",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.1",
     "jsdom": "^11.6.2",
-    "method-override": "^2.3.10",
+    "lodash": "^4.17.5",
     "module-alias": "^2.0.6"
   },
   "devDependencies": {

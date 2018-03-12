@@ -1,5 +1,6 @@
 const express = require('express');
-const consign = require('consign');
+const graphqlHTTP = require('express-graphql');
+const schema = require('../api/schemas/Movie');
 const allowCors = require('./cors');
 
 module.exports = () => {
@@ -7,9 +8,14 @@ module.exports = () => {
 
   app.use(allowCors);
 
-  consign({ cwd: 'src/api' })
-    .include('routes')
-    .into(app);
+  app.use(
+    '/api/v2/cinegloria/movies',
+    graphqlHTTP({
+      formatError: error => ({ message: error.message }),
+      schema,
+      graphiql: true,
+    }),
+  );
 
   return app;
 };
