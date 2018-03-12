@@ -5,9 +5,12 @@ import {
 } from 'graphql';
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
-import client from '@services/movies.services';
+import service from '@services/movies.services';
 import Movie from '@schemas/Movie';
+
+chai.use(sinonChai);
 
 describe('Movie Schema', () => {
   const movieType = Movie._typeMap.MovieType;
@@ -97,21 +100,66 @@ describe('Movie Schema', () => {
       });
     });
 
-    describe('Resolve', () => {
-      const sandbox = sinon.sandbox.create();
-
-      beforeEach(() => {
-        sandbox.stub(client, 'getMovies');
+    context('Promised fields resolve', () => {
+      it('should have resolve a promise name field', () => {
+        expect(movieType.getFields().name.resolve({ name: 'My movie' })).to.equal('My movie');
       });
 
-      afterEach(() => {
-        sandbox.restore();
+      it('should have resolve a promise weekExhibition field', () => {
+        expect(movieType.getFields().weekExhibition.resolve({ weekExhibition: 'My movie' })).to.equal('My movie');
       });
 
-      it('should call getMovies', () => {
-        sandbox.resolve();
-        expect(client.getMovies).to.have.been.calledOnce;
+      it('should have resolve a promise cover field', () => {
+        expect(movieType.getFields().cover.resolve({ cover: 'My movie' })).to.equal('My movie');
       });
+
+      it('should have resolve a promise duration field', () => {
+        expect(movieType.getFields().duration.resolve({ duration: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise actors field', () => {
+        expect(movieType.getFields().actors.resolve({ actors: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise genre field', () => {
+        expect(movieType.getFields().genre.resolve({ genre: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise local field', () => {
+        expect(movieType.getFields().local.resolve({ local: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise session field', () => {
+        expect(movieType.getFields().session.resolve({ session: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise trailer field', () => {
+        expect(movieType.getFields().trailer.resolve({ trailer: 'My movie' })).to.equal('My movie');
+      });
+
+      it('should have resolve a promise sinopse field', () => {
+        expect(movieType.getFields().sinopse.resolve({ sinopse: 'My movie' })).to.equal('My movie');
+      });
+    });
+  });
+
+  describe('Resolve promise', () => {
+    const { movies } = Movie._typeMap.movies.getFields();
+    let sandbox;
+    let promise;
+
+    beforeEach(() => {
+      sandbox = sinon.sandbox.create();
+      sandbox.stub(service, 'getMovies');
+    });
+
+    afterEach(() => {
+      sandbox.restore();
+    });
+
+    it('should call Promise', () => {
+      movies.resolve();
+      expect(service.getMovies).to.have.been.calledOnce;
     });
   });
 });

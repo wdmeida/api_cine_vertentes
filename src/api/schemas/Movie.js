@@ -6,7 +6,7 @@ const {
   GraphQLString,
 } = require('graphql');
 
-const { getMovies } = require('../services/movies.services');
+const service = require('../services/movies.services');
 
 const MovieType = new GraphQLObjectType({
   name: 'MovieType',
@@ -69,7 +69,7 @@ module.exports = new GraphQLSchema({
             type: GraphQLString,
           },
         },
-        resolve: (root, args) => getMovies(),
+        resolve: (root, args) => service.getMovies(),
       },
     }),
   }),

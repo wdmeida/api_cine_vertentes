@@ -1,6 +1,4 @@
-require('module-alias/register');
-
-const { normalizeText } = require('@utils/dom.utils');
+const { normalizeText } = require('../utils/dom.utils');
 
 class Movie {
   constructor(node) {
