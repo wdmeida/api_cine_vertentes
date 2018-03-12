@@ -47,7 +47,6 @@
   "homepage": "https://github.com/wdmeida/spotify-wrapper#readme",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.1",
