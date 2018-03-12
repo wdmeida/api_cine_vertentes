@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wdmeida/api_cine_vertentes.svg?branch=master)](https://travis-ci.org/wdmeida/api_cine_vertentes)
+
 <h3>API Cine Vertentes</h3>
 
 <p>Servidor feito em <strong>NodeJS</strong> que obtém as informações dos filmes em cartaz no Cine Plaza na cidade de <strong>Barbacena -MG</strong>.</p>
