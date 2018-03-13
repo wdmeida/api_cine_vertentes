@@ -1,28 +1,57 @@
 [![Build Status](https://travis-ci.org/wdmeida/api_cine_vertentes.svg?branch=master)](https://travis-ci.org/wdmeida/api_cine_vertentes)
 [![Coverage Status](https://coveralls.io/repos/github/wdmeida/api_cine_vertentes/badge.svg?branch=master)](https://coveralls.io/github/wdmeida/api_cine_vertentes?branch=master)
 
-<h3>API Cine Vertentes</h3>
+# API Cine Vertentes
 
-<p>Servidor feito em <strong>NodeJS</strong> que obtém as informações dos filmes em cartaz no Cine Plaza na cidade de <strong>Barbacena -MG</strong>.</p>
+API developed in [**NodeJS**](https://nodejs.org/) to make the wrapper of the information about the filmes in poster at [**Cine Glória**](http://cinegloria.com/programacao) in the city of **São João Del Rey - MG**.
 
-<h4>Tecnologias Utilizadas</h4>
-<ul>
-  <li>cheerio</li>
-  <li>ejs</li>
-  <li>express</li>
-  <li>express-load</li>
-  <li>body-parser</li>
-  <li>method-override</li>
-  <li>request</li>
-</ul>
 
-<h4>Como utilizar</h4>
-<p>Após realizar o download e extração dos arquivos, do diretório raiz da aplicação, abra o terminal e baixe as dependências através do comando:</p><br/>
-<strong>npm install -save</strong></br>
-<p>Após o término do download das dependências, iniciar a aplicação com o seguinte comando:</p><br/>
-<strong>node server.js</strong></br>
-<p>Para acessar os dados, basta realizar uma requisição GET para a seguinte url:</p><br/>
-<strong>localhost:3000/movies</strong></br>
+### Dependencies
+
+* [NodeJS](https://nodejs.org/en/)
+* [GraphQL](http://graphql.org/)
+* [Express Graphql](https://github.com/graphql/express-graphql)
+
+## Use
+
+Make the repository clone to a local directory. After that enter the directory and install the dependencies:
+
+```npm install```
+
+### Running the tests
+
+If you want to run the tests, run the command:
+
+```npm run test```
+
+### Running the API
+
+Run the command:
+
+```npm run dev```
+
+To perform the API queries, use the url and route:
+
+```http://localhost:3000/api/v2/cinegloria/movies```
+
+### Example of use
+
+For ease of queries, you can use a library or browser plugin that facilitates integration with GraphQL query. Example using the [Altair GraphQL Client](https://altair.sirmuel.design/):
+
+![Example query](/images/query.png)
+
+The base query is ```movies```. It accepts the folowwing attributes:
+
+* name
+* weekExhibition
+* cover
+* duration
+* actors
+* genre
+* local
+* session
+* trailer
+* sinopse
 
 ## Contributing
 
