@@ -10,7 +10,7 @@ const stop = (server) => {
 };
 
 if (process.env.NODE_ENV !== 'test') {
-  const server = start();
+  start();
 }
 
 module.exports = { start, stop };
