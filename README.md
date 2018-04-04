@@ -69,8 +69,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 |:---------------------:|
 |  [Wagner Almeida](https://github.com/wdmeida/)   |
 
-See also the list of [contributors](https://github.com/wdmeida/api_cine_vertentes
-/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/wdmeida/api_cine_vertentes/contributors) who participated in this project.
 
 ## License
 
