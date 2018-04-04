@@ -56,8 +56,7 @@ The base query is ```movies```. It accepts the folowwing attributes:
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/wdmeida/api_cine_vertentes
-/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/wdmeida/api_cine_vertentes/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -65,8 +64,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-| ![Wagner Almeida](https://avatars2.githubusercontent.com/u/9699741?s=400&u=d13dc23a68981463adfc43efbd7a26a664455711&v=4)|
-|:---------------------:|
 |  [Wagner Almeida](https://github.com/wdmeida/)   |
 
 See also the list of [contributors](https://github.com/wdmeida/api_cine_vertentes/contributors) who participated in this project.
