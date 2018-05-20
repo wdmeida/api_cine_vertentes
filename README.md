@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/wdmeida/api_cine_vertentes.svg?branch=master)](https://travis-ci.org/wdmeida/api_cine_vertentes)
 [![Coverage Status](https://coveralls.io/repos/github/wdmeida/api_cine_vertentes/badge.svg?branch=master)](https://coveralls.io/github/wdmeida/api_cine_vertentes?branch=master)
 
+
 # API Cine Vertentes
 
 API developed in [**NodeJS**](https://nodejs.org/) to make the wrapper of the information about the filmes in poster at [**Cine Glória**](http://cinegloria.com/programacao) in the city of **São João Del Rey - MG**.
